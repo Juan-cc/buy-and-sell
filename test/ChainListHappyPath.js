@@ -97,8 +97,8 @@ contract('ChainList', function(accounts){
 
     assert(sellerBalanceAfterBuy == sellerBalanceBeforeBuy + articlePrice, "seller should have earned " + articlePrice + "ETH");
     assert(buyerBalanceAfterBuy <= buyerBalanceBeforeBuy - articlePrice, "buyer should have spent " + articlePrice + "ETH");
+    
     return chainListInstance.getArticle.call();
-
     }).then(function (data) {
         assert.equal(data[0], seller, "seller must be " + seller);
         assert.equal(data[1], buyer, "buyer must be " + buyer);
