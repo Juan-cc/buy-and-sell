@@ -1,0 +1,26 @@
+module.exports = function(callback) {
+	ChainList.deployed().then(function(instance){app = instance;});
+}
+
+#REFERENCE APP INSTANCE
+ChainList.deployed().then(function(instance){app = instance;});
+
+#BALANCE ACCOUNT 1
+web3.fromWei(web3.eth.getBalance(web3.eth.accounts[1]), "ether").toNumber()
+
+#BALANCE ACCOUNT 2
+web3.fromWei(web3.eth.getBalance(web3.eth.accounts[2]), "ether").toNumber()
+
+#SELL EVENT
+var sellEvent = app.sellArticleEvent({}, {from: 0, to: 'latest'}).watch(function(error, event) {console.log(event);})
+
+#BUY EVENT
+var buyEvent = app.buyArticleEvent({}, {from: 0, to: 'latest'}).watch(function(error, event) {console.log(event);})
+
+#SELL ARTICLE1
+app.sellArticle("Article 1", "Descrip 1", web3.toWei(10, "ether"), {from:web3.eth.accounts[1]})
+#SELL ARTICLE 2
+app.sellArticle("Article 2", "Descrip 2", web3.toWei(20, "ether"), {from:web3.eth.accounts[1]})
+
+#BUY ARTICLE 1
+app.buyArticle(1, {from: web3.eth.accounts[2], value: web3.toWei(10, "ether")})
