@@ -14,6 +14,7 @@ contract ChainList{
   //State variables
   mapping (uint => Article) public articles;
   uint articleCounter;
+  address owner;
 
 
   // events
@@ -31,7 +32,10 @@ contract ChainList{
         uint256 aPrice
     );
 
-
+    // constructor
+    function ChainList(){
+        owner = msg.sender;
+    }
       //sell an article
       function sellArticle(string aName, string aDescription, uint256 aPrice)
       public {
@@ -112,5 +116,11 @@ contract ChainList{
 
           // trigger the event
           buyArticleEvent(anId, article.seller, article.buyer, article.name, article.price);
+      }
+
+      // kill the smart contract
+      function kill(){
+          require(msg.sender == owner);
+          selfdestruct(owner);
       }
 }
