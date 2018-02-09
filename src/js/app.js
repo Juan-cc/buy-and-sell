@@ -140,13 +140,16 @@ App = {
 
   // Listen to events raised from the contract
   listenToEvents: function(){
-      //alert(App.contracts.ChainList.deployed());
       App.contracts.ChainList.deployed().then(function(instance) {
           instance.sellArticleEvent({}, {
               fromBlock: 0,
               toBlock: 'latest'
           }).watch(function(error, event) {
-              $("#events").append('<li class="list-group-item">' + event.args.aName + ' is for sale' + '</li>');
+              if (!error) {
+                  $("#events").append('<li class="list-group-item">' + event.args.aName + ' is for sale' + '</li>');
+              } else {
+                  console.error(error);
+              }
               App.reloadArticles();
           });
 
@@ -154,7 +157,11 @@ App = {
               fromBlock: 0,
               toBlock: 'latest'
           }).watch(function(error, event) {
-              $("#events").append('<li class="list-group-item">' + event.args.aBuyer + ' bought ' + event.args.aName +  '</li>');
+              if (!error) {
+                  $("#events").append('<li class="list-group-item">' + event.args.aBuyer + ' bought ' + event.args.aName +  '</li>');
+              } else {
+                  console.error(error);
+              }
               App.reloadArticles();
           });
       });
