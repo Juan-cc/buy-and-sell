@@ -71,10 +71,10 @@ App = {
 
         for (var i = 0; i < articleIds.length; i++){
             var articleId = articleIds[i];
-            chainListInstance.articles.call(articleId).then(function(article) {
+            chainListInstance.articles.call(articleId.toNumber()).then(function(article) {
                 App.displayArticle(
                     article[0],
-                    article[1],
+                    article[1], // note we are not sending article[2] as parameter to displayArticle()
                     article[3],
                     article[4],
                     article[5]
