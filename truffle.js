@@ -6,12 +6,12 @@ module.exports = {
       host: "localhost",
       port: 8545,
       network_id: "*" // Match any network id
-      },     
+      },
       rinkeby: {
         host: "localhost",
         port: 8545,
         network_id: 4, // Rinkeby default test network
-        gas: 4700000
+        gas: 4700000 // Gas limit used for deploys
     }
   }
 };

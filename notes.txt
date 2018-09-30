@@ -1,0 +1,6 @@
+chainlist notes
+---------------
+
+- Repasar modifiers (section 7 lecture 66)
+- Repasar Eventos
+ 

@@ -116,7 +116,7 @@ contract ChainList is Owned{
       }
 
       // kill the smart contract
-      function kill() onlyOwner {
+      function kill() onlyOwner public {
           selfdestruct(owner);
       }
 }
