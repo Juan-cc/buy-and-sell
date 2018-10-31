@@ -5,3 +5,5 @@ Network: Rinkeby (testnet)
 
 Try it here: https://juan-cc.github.io/chainlist/
 
+Requirements: Metamask.
+
