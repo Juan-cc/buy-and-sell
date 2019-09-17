@@ -3,7 +3,7 @@ Ethereum Blockchain Smart contract app to buy/sell items currently deployed on R
 
 Network: Rinkeby (testnet)
 
-Try it here: https://juan-cc.github.io/chainlist/
+Try it here: https://juan-cc.github.io/buy-and-sell/
 
 Requirements: Metamask.
 
